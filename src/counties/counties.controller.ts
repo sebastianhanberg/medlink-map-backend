@@ -1,5 +1,6 @@
-import { Controller, Get, Put, Param, Body, Query } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { CountiesService } from './counties.service';
+import * as swedenCounties from '../data/sweden-counties.json';
 
 @Controller('counties')
 export class CountiesController {
@@ -7,16 +8,11 @@ export class CountiesController {
 
   @Get()
   findAll() {
-    return this.countiesService.findAll();
+    return swedenCounties;
   }
 
-  @Get('search')
-  search(@Query('query') query: string) {
-    return this.countiesService.search(query);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateData: { color: string, tag: string }) {
-    return this.countiesService.update(+id, updateData);
+  @Get('search/:name')
+  search(@Param('name') name: string) {
+    return this.countiesService.search(name);
   }
 }

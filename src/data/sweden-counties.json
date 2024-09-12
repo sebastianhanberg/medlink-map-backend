@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stockholm County",
+        "population": 2377081,
+        "area": 6519
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [17.8, 59.0],
+            [18.2, 59.0],
+            [18.2, 59.4],
+            [17.8, 59.4],
+            [17.8, 59.0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Västra Götaland County",
+        "population": 1725881,
+        "area": 23948
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [11.5, 57.5],
+            [12.5, 57.5],
+            [12.5, 58.5],
+            [11.5, 58.5],
+            [11.5, 57.5]
+          ]
+        ]
+      }
+    }
+  ]
+}
