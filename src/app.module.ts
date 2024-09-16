@@ -32,7 +32,7 @@ import { Kommun } from './kommuner/kommun.entity';
         console.log(`DB_HOST: ${dbConfig.host}`);
         console.log(`DB_PORT: ${dbConfig.port}`);
         console.log(`DB_USERNAME: ${dbConfig.username}`);
-        console.log(`DB_PASSWORD: ${dbConfig.password}`);
+
         console.log(`DB_DATABASE: ${dbConfig.database}`);
 
         return dbConfig;
