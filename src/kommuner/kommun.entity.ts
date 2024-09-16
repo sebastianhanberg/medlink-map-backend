@@ -11,12 +11,6 @@ export class Kommun {
   @Column('simple-array')
   center: number[];
 
-  @Column()
-  population: number;
-
-  @Column()
-  area: number;
-
   @Column({ default: false })
   isRegion: boolean;
 

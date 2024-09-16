@@ -11,11 +11,6 @@ export class County {
   @Column('simple-array')
   center: number[];
 
-  @Column()
-  population: number;
-
-  @Column()
-  area: number;
 
   @Column({ default: true })
   isRegion: boolean;
