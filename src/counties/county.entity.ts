@@ -8,12 +8,21 @@ export class County {
   @Column()
   name: string;
 
-  @Column('json')
-  geometry: any;
+  @Column('simple-array')
+  center: number[];
 
-  @Column({ nullable: true })
-  color: string;
+  @Column()
+  population: number;
 
-  @Column({ nullable: true })
-  tag: string;
+  @Column()
+  area: number;
+
+  @Column({ default: false })
+  isRegion: boolean;
+
+  @Column({ default: false })
+  hasAgreement: boolean;
+
+  @Column({ type: 'text', nullable: true })
+  additionalInfo: string;
 }
