@@ -1,4 +1,8 @@
-const Kommuner = [
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '../app.module';
+import { KommunerService } from '../kommuner/kommuner.service';
+
+const kommunerData = [
   {
     name: 'Ale',
     center: [57.9333, 12.0833],
@@ -2568,3 +2572,23 @@ const Kommuner = [
     hasAgreement: true,
   },
 ];
+
+async function bootstrap() {
+  console.log('Starting seeding process for kommuner...'); // Log start
+  const app = await NestFactory.createApplicationContext(AppModule);
+  const kommunerService = app.get(KommunerService);
+
+  for (const kommun of kommunerData) {
+    try {
+      await kommunerService.create(kommun);
+      console.log(`Added ${kommun.name} to the database.`); // Log each added entry
+    } catch (error) {
+      console.error(`Failed to add ${kommun.name}:`, error.message); // Log errors
+    }
+  }
+
+  console.log('Seeding kommuner complete');
+  await app.close();
+}
+
+bootstrap();

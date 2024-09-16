@@ -1,3 +1,7 @@
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '../app.module';
+import { CountiesService } from '../counties/counties.service';
+
 const countiesData = [
   {
     name: 'Stockholm',
@@ -168,3 +172,23 @@ const countiesData = [
     hasAgreement: true,
   },
 ];
+
+async function bootstrap() {
+  console.log('Starting seeding process...'); // Log start
+  const app = await NestFactory.createApplicationContext(AppModule);
+  const countiesService = app.get(CountiesService);
+
+  for (const county of countiesData) {
+    try {
+      await countiesService.create(county);
+      console.log(`Added ${county.name} to the database.`); // Log each added entry
+    } catch (error) {
+      console.error(`Failed to add ${county.name}:`, error.message); // Log errors
+    }
+  }
+
+  console.log('Seeding counties complete');
+  await app.close();
+}
+
+bootstrap();

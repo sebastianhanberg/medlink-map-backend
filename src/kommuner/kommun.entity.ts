@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class County {
+export class Kommun {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -17,7 +17,7 @@ export class County {
   @Column()
   area: number;
 
-  @Column({ default: true })
+  @Column({ default: false })
   isRegion: boolean;
 
   @Column({ default: false })

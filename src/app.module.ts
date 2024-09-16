@@ -6,6 +6,8 @@ import { AuthModule } from './auth/auth.module';
 import { CountiesModule } from './counties/counties.module';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { County } from './counties/county.entity';
+import { KommunerModule } from './kommuner/kommuner.module';
+import { Kommun } from './kommuner/kommun.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { County } from './counties/county.entity';
           username: configService.get<string>('DB_USERNAME'),
           password: configService.get<string>('DB_PASSWORD'),
           database: configService.get<string>('DB_DATABASE'),
-          entities: [__dirname + '/**/*.entity{.ts,.js}', County],
+          entities: [__dirname + '/**/*.entity{.ts,.js}', County, Kommun],
           synchronize: true, // Be careful with this in production
         };
 
@@ -40,6 +42,7 @@ import { County } from './counties/county.entity';
     UsersModule,
     AuthModule,
     CountiesModule,
+    KommunerModule,
   ],
 })
 export class AppModule {}
